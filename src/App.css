@@ -31,3 +31,29 @@ gap:5px;
 .icon-container{
     border-bottom:1px solid rgb(131, 131, 196) ;
 }
+.modal{
+    width:100vw;
+    height: 100vh;
+    display:flex;
+    background-color:rgba(0,0,0,0.8);
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index:10;
+    padding:15px 20px;
+
+}
+.modal .container{
+    margin:auto auto;
+    padding:20px 20px;
+    width:20%;
+    height:30%;
+    background-color: white;
+    border-radius:10px;
+    border:1px solid rgb(131, 131, 196) ;
+}
+.modal button{
+    margin:5px;
+    padding:3px 10px;
+    border-radius: 3px;
+}

@@ -3,3 +3,31 @@
     padding:0;
     box-sizing: border-box;
 }
+.loading{
+    margin:10px;
+}
+.post-container{
+padding:10px 20px;
+display: grid;
+grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+align-items:center;
+justify-content:center;
+width:100vw;
+height:100vh;
+gap:5px;
+}
+.card{
+    padding:10px 20px;
+    border:2px solid rgb(131, 131, 196);
+    border-radius: 10px;
+    
+}
+.icon{
+    margin-right:8px;
+    color: rgb(131, 131, 196);
+    cursor:pointer;
+
+}
+.icon-container{
+    border-bottom:1px solid rgb(131, 131, 196) ;
+}

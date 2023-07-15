@@ -5,28 +5,31 @@ const initialState={
     posts:[]
 }
 export const fetchPosts=createAsyncThunk("posts/fetchPosts",async()=>{
-    const response=await axios.get("https://jsonplaceholder.typicode.com/posts");
-    const data=response.json;
-    return data
+    return axios
+      .get("https://jsonplaceholder.typicode.com/posts"
+     )
+      .then((res) => {
+        return { data: res.data, headers: res.headers["x-total-count"] };
+      })
+      .catch((error) => error.message);
+  }
 
-}
+
 )
+
  export const postSlice=createSlice({
    name:"posts" ,
    initialState,
-   extraReducers: (builder) => {
-    //get product
-   builder.addCase(fetchPosts.pending, (state) => {
-     return { ...state, loading: true };
-   });
-   builder.addCase(fetchPosts.fulfilled, (state, action) => {
-     return {
-       ...state,
-       loading: false,
-       posts: action.payload.data,
-       
-     };
-    })
+   extraReducers:  {
+    //get posts
+//   
+[fetchPosts.pending]: (state) => {
+    state.loadings= true
+},
+[fetchPosts.fulfilled]: (state , action) => {
+    state.loadings= false;
+    state.posts= action.payload.data
+},
 }
 })
 export default postSlice.reducer

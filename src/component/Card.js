@@ -3,10 +3,10 @@ import {AiOutlineEdit} from 'react-icons/ai'
 import {BsTrash} from 'react-icons/bs'
 function Card({title,body}) {
   return (
-    <div>
-        <div>
-        <AiOutlineEdit/>
-        <BsTrash/>
+    <div className="card">
+        <div className='icon-container'>
+        <AiOutlineEdit className='icon' onClick={()=>console.log("edit")}/>
+        <BsTrash className='icon' onClick={()=>console.log("delete")}/>
         </div>
         <div>
       <p>title:{title}</p>

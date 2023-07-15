@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+
+import "./App.css";
+import { useEffect } from "react";
+import Card from './component/Card'
+import { useSelector,useDispatch } from "react-redux";
+import {fetchPosts} from './redux/features/postSlice'
 
 function App() {
+const dispatch=useDispatch()
+  const {posts,loading}=useSelector((state)=>state.posts)
+
+ useEffect(()=>{
+dispatch(fetchPosts())
+ }
+
+ ,[])
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   
+      
+      loading?(<div>loading ...</div>)
+      :(
+        <div>
+        <div>Post List</div>
+      {
+        posts.map(post=>(<Card key={post.id} {...post}/>))
+      }
+        </div>
+        
+      )
+    
+  
+    )
+ 
+
+
+ 
+  
 }
+
 
 export default App;

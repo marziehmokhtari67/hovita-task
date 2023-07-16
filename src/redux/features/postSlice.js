@@ -7,7 +7,7 @@ const initialState = {
 };
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   return axios
-    .get(baseUrl)
+    .get(`${baseUrl}?_page=1&_limit=15}`)
     .then((res) => {
       return { data: res.data, headers: res.headers["x-total-count"] };
     })

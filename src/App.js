@@ -21,7 +21,7 @@ dispatch(fetchPosts())
       loading?(<div className="loading">loading ...</div>)
       :(
         <div>
-        <div>Post List</div>
+        <h2>Post List</h2>
         <div className="post-container">
       {
          posts.map(post=>(<Card key={post.id} {...post}/>))

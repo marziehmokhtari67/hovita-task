@@ -4,6 +4,7 @@ const baseUrl = "https://jsonplaceholder.typicode.com/posts";
 const initialState = {
   loading: false,
   posts: [],
+  archivedpost:[]
 };
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   return axios
@@ -23,6 +24,13 @@ export const deletePosts = createAsyncThunk("posts/deletePosts", async (id) => {
 export const postSlice = createSlice({
   name: "posts",
   initialState,
+  reducers:{
+handleArchive:(state,action)=>{
+  
+  state.archivedpost=[...state.archivedpost,action.payload]
+ 
+}
+  },
   extraReducers: {
     //get posts
     //
@@ -43,3 +51,4 @@ export const postSlice = createSlice({
   },
 });
 export default postSlice.reducer;
+export const{handleArchive}=postSlice.actions

@@ -30,6 +30,7 @@ gap:5px;
 }
 .icon-container{
     border-bottom:1px solid rgb(131, 131, 196) ;
+    position:relative;
 }
 .modal{
     width:100vw;
@@ -57,6 +58,9 @@ gap:5px;
     padding:3px 10px;
     border-radius: 3px;
 }
+h2{
+margin:15px;
+}
 form{
     margin:auto auto;
     width:40%;
@@ -70,3 +74,32 @@ gap:10px;
 align-items:center;
 justify-content:center;
 }
+.tooltips{
+    /* animation-name: move-tooltips;
+  animation-duration: 1.5s; */
+    transform:translateX(-200px);
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    transform:translateX(-50%);
+    position: absolute;
+  z-index: 1;
+  transition: transform 1.5s;
+}
+
+/* @keyframes move-tooltips {
+    from {transform:translateX(-300px)}
+    to {transform:translateX(100px)}
+  } */
+  .archived-icon{
+    margin-right:8px;
+    color: rgb(131, 131, 196);
+    cursor:pointer;
+  }
+  .archived-icon:target .tooltips{
+    transform:translateX(80%)
+  }
+
